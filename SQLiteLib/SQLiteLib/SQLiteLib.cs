@@ -64,7 +64,7 @@ namespace SQLiteLib
             }
             catch(Exception e)
             {
-                Console.Write(e.ToString());
+                Console.WriteLine(e.ToString());
                 com = null;
                 return false;
             }
@@ -85,7 +85,7 @@ namespace SQLiteLib
             }
             catch(Exception e)
             {
-                Console.Write(e.ToString());
+                Console.WriteLine(e.ToString());
                 if(con != null)
                 {
                     con.Close();
@@ -105,7 +105,7 @@ namespace SQLiteLib
             }
             catch (Exception e)
             {
-                Console.Write(e.ToString());
+                Console.WriteLine(e.ToString());
                 if (con != null)
                 {
                     con.Close();
