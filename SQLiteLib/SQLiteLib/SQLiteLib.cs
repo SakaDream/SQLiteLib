@@ -7,6 +7,16 @@ namespace SQLiteLib
     {
         static SQLiteConnection con;
         static SQLiteCommand com;
+        public static void createDB(string path, bool saveConfig)
+        {
+            SQLiteConnection.CreateFile(path);
+            if (saveConfig)
+            {
+                SQLiteConfig config = new SQLiteConfig();
+                config.dataSource = path;
+                SQLiteConfigJson.save(config);
+            }
+        }
         public static bool connect(SQLiteConfig config)
         {
             try
