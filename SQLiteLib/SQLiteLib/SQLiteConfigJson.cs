@@ -13,7 +13,7 @@ namespace SQLiteLib
         {
             if (!File.Exists(path))
             {
-                File.Create(path);
+                using (var stream = File.Create(path));
             }
             else
             {
