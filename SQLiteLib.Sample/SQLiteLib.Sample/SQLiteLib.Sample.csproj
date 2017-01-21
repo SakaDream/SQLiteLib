@@ -46,11 +46,13 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SQLiteLib">
-      <HintPath>D:\Du Lieu\Documents\Libraries\C# Library\SQLiteLib\SQLiteLib.dll</HintPath>
+    <Reference Include="SQLiteLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SQLiteLib\SQLiteLib\bin\Debug\SQLiteLib.dll</HintPath>
     </Reference>
-    <Reference Include="SQLiteLib.Security">
-      <HintPath>D:\Du Lieu\Documents\Libraries\C# Library\SQLiteLib\SQLiteLib.Security.dll</HintPath>
+    <Reference Include="SQLiteLib.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SQLiteLib\SQLiteLib\bin\Debug\SQLiteLib.Security.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

@@ -9,7 +9,6 @@
         public string defaultTypeName { get; set; } = "";
         public string noDefaultFlags { get; set; } = "False";
         public string noSharedFlags { get; set; } = "False";
-        public string vfsName { get; set; } = "";
         public string zipVfsName { get; set; } = "";
         public string dateTimeFormat { get; set; } = "ISO8601";
         public string dateTimeKind { get; set; } = "Unspecified";

@@ -9,7 +9,7 @@ namespace SQLiteLib.Sample
         {
             Console.WriteLine("Creating test.db file...");
             SQLiteLib.createDB(@"test.db", true);
-            SQLiteLib.updateQuery(@"CREATE TABLE 'TEST' ( 'ID' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 'NAME' TEXT NOT NULL, 'GENDER' INTEGER NOT NULL DEFAULT 0 CHECK(GENDER == 0 OR GENDER == 1), 'SALARY' REAL DEFAULT 0 )");
+            SQLiteLib.updateQuery(@"CREATE TABLE 'TEST' ('ID' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 'NAME' TEXT NOT NULL, 'GENDER' INTEGER NOT NULL DEFAULT 0 CHECK(GENDER == 0 OR GENDER == 1), 'SALARY' REAL DEFAULT 0)");
 
             string name;
             int gender, salary;
