@@ -7,14 +7,33 @@ namespace SQLiteLib
     {
         static SQLiteConnection con;
         static SQLiteCommand com;
-        public static void createDB(string path, bool saveConfig)
+        public static void createDB(string path, bool saveConfig, bool encrypt)
         {
             SQLiteConnection.CreateFile(path);
             if (saveConfig)
             {
                 SQLiteConfig config = new SQLiteConfig();
                 config.dataSource = path;
-                SQLiteConfigJson.save(config);
+                SQLiteConfigJson.save(config, encrypt);
+            }
+        }
+        public static void createDB(string path, string password, bool saveConfig, bool encrypt)
+        {
+            SQLiteConnection.CreateFile(path);
+            if (!password.Equals(""))
+            {
+                SQLiteConnection con = new SQLiteConnection("Data Source: " + path + ";");
+                con.SetPassword(password);
+            }
+            if (saveConfig)
+            {
+                SQLiteConfig config = new SQLiteConfig();
+                config.dataSource = path;
+                if (!password.Equals(""))
+                {
+                    config.password = password;
+                }
+                SQLiteConfigJson.save(config, encrypt);
             }
         }
         public static bool connect(SQLiteConfig config)
