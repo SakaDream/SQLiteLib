@@ -61,6 +61,7 @@ namespace SQLiteLib
                 );
 
                 con.Open();
+                com = new SQLiteCommand(con);
                 return true;
             }
             catch(Exception e)
@@ -88,7 +89,6 @@ namespace SQLiteLib
             try
             {
                 connect();
-                con.Open();
                 com.CommandText = query;
                 return com.ExecuteReader();
             }
@@ -107,10 +107,9 @@ namespace SQLiteLib
             try
             {
                 connect();
-                con.Open();
-                //com.CommandText = query;
-                //com.ExecuteNonQuery();
-                //con.Close();
+                com.CommandText = query;
+                com.ExecuteNonQuery();
+                con.Close();
             }
             catch (Exception e)
             {
