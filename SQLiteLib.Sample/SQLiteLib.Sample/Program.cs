@@ -80,7 +80,6 @@ namespace SQLiteLib.Sample
                 }
             }
 
-
             Console.WriteLine("Creating test.db file...");
             SQLiteLib.createDB(dbName, password, saveJson, isEncrypt);
             SQLiteLib.updateQuery(@"CREATE TABLE 'TEST' ('ID' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 'NAME' TEXT NOT NULL, 'GENDER' INTEGER NOT NULL DEFAULT 0 CHECK(GENDER == 0 OR GENDER == 1), 'SALARY' REAL DEFAULT 0)");
