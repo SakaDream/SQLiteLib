@@ -36,5 +36,12 @@ namespace SQLiteLib.Test
             bool isConnect = SQLiteLib.connect();
             Assert.AreEqual(true, isConnect);
         }
+        [TestMethod]
+        public void TestWithTempFile()
+        {
+            SQLiteLib.createDB(@"new-test-3.db", false, false);
+            bool isConnect = SQLiteLib.connect();
+            Assert.AreEqual(true, isConnect);
+        }
     }
 }

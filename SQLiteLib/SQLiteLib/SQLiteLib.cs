@@ -16,6 +16,12 @@ namespace SQLiteLib
                 config.dataSource = path;
                 SQLiteConfigJson.save(config, encrypt);
             }
+            else
+            {
+                SQLiteConfig config = new SQLiteConfig();
+                config.dataSource = path;
+                SQLiteConfigJson.saveTemp(config, encrypt);
+            }
         }
         public static void createDB(string path, string password, bool saveConfig, bool encrypt)
         {
@@ -34,6 +40,16 @@ namespace SQLiteLib
                     config.password = password;
                 }
                 SQLiteConfigJson.save(config, encrypt);
+            }
+            else
+            {
+                SQLiteConfig config = new SQLiteConfig();
+                config.dataSource = path;
+                if (!password.Equals(""))
+                {
+                    config.password = password;
+                }
+                SQLiteConfigJson.saveTemp(config, encrypt);
             }
         }
         public static bool connect(SQLiteConfig config)
@@ -92,15 +108,24 @@ namespace SQLiteLib
         }
         public static bool connect()
         {
-            SQLiteConfig config = SQLiteConfigJson.open();
             try
             {
+                SQLiteConfig config = SQLiteConfigJson.openTemp();
                 connect(config);
                 return true;
             }
             catch
             {
-                return false;
+                try
+                {
+                    SQLiteConfig config = SQLiteConfigJson.open();
+                    connect(config);
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
         public static SQLiteDataReader selectQuery(string query)
